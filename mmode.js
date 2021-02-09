@@ -1,18 +1,15 @@
 var resbox = document.getElementById("result");
-var seed = new Date().getTime();
-document.getElementById("seed").value = seed;
+document.getElementById("seed").value = new Date().getTime();
 var variance = 0.75;
+var cellsize = 75;
 var pattern = trianglify({
     width: document.getElementById("width").value,
     height: document.getElementById("height").value,
-    cellSize: document.getElementById("cellSize").value,
+    cellSize: cellsize,
     variance: variance,
-    seed: seed,
+    seed: document.getElementById("seed").value,
     xColors: 'random',
     yColors: 'match',
-    fill: true,
-    colorSpace: 'lab',
-    /*palette: trianglify.colorbrewer, 这个有问题*/
     colorFunction: trianglify.colorFunctions.interpolateLinear(0.5),
     strokeWidth: 0,
     points: null
@@ -22,14 +19,11 @@ function update(){
     pattern = trianglify({
         width: document.getElementById("width").value,
         height: document.getElementById("height").value,
-        cellSize: document.getElementById("cellSize").value,
+        cellSize: cellsize,
         variance: variance,
-        seed: seed,
+        seed: document.getElementById("seed").value,
         xColors: 'random',
         yColors: 'match',
-        fill: true,
-        colorSpace: 'lab',
-        /*palette: trianglify.colorbrewer, 这个有问题*/
         colorFunction: trianglify.colorFunctions.interpolateLinear(0.5),
         strokeWidth: 0,
         points: null
@@ -45,18 +39,28 @@ function dl(){
     temp.click();
     temp.remove();
 }
-function svg(){
-    var temp = document.createElement("textarea");
-    temp.download = 'trianglify-free';
-    temp.value = pattern.toSVG().toString();
-    document.body.appendChild(temp);
+function svg(res){
+    var tempsvg = document.createElement("svg");
+    tempsvg.hidden = true;
+    pattern.toSVG(tempsvg);
+    var tempa = document.createElement("a");
+    tempa.download = 'trianglify-free.svg';
+    if(res){
+        tempa.href = "data:text/plain;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='" + document.getElementById("width").value + "' height='" + document.getElementById("height").value + "'>" + tempsvg.innerHTML + "</svg>";
+    }
+    else{
+        tempa.href = "data:text/plain;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg'>" + tempsvg.innerHTML + "</svg>";
+    }
+    document.body.appendChild(tempa);
+    tempa.click();
+    tempa.remove();
 }
-function variancerange(){
+function varange(){
     variance = document.getElementById("variance").value;
     document.getElementById("variance-text").value = document.getElementById("variance").value;
     update();
 }
-function variancetext(){
+function vatext(){
     if(document.getElementById("variance-text").value > 2){
         document.getElementById("variance").value = 2;
     }
@@ -70,9 +74,19 @@ function variancetext(){
     update();
 }
 function seedupdate(){
-    if(document.getElementById("seed").value == ""){
-        document.getElementById("seed").value = new Date().getTime();
-    }
-    seed = document.getElementById("seed").value;
+    document.getElementById("seed").value = new Date().getTime();
     update();
+}
+function csupdate(){
+    if(document.getElementById("cellsize").value.search(/[^-][^0-9]/) == -1){
+        if(Math.abs(document.getElementById("cellsize").value) <= 20){
+            var newsize = prompt("WARNING: Cell size with small absolute value (-20~20) will probably cause a crash, and the generated photo will have almost no triangle visible. Do you really want this?\r\nPlease enter the value you want below.");
+            document.getElementById("cellsize").value = newsize;
+        }
+        cellsize = document.getElementById("cellsize").value;
+        update();
+    }
+    else{
+        document.getElementById("cellsize").value = cellsize;
+    }
 }
