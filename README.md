@@ -1,4 +1,4 @@
-# trianglify-free
+# trianglify.io-free
 **Copyright** : [trianglify](https://github.com/qrohlf/trianglify) is created by qrohlf.
 
 trianglify本来是一个开源项目，不过它的作者qrohlf使用它建造的trianglify.io居然要收费？！
