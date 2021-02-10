@@ -45,11 +45,12 @@ function svg(res){
     pattern.toSVG(tempsvg);
     var tempa = document.createElement("a");
     tempa.download = 'trianglify-free.svg';
+    const head = "data:text/plain;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg'";
     if(res){
-        tempa.href = "data:text/plain;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='" + document.getElementById("width").value + "' height='" + document.getElementById("height").value + "'>" + tempsvg.innerHTML + "</svg>";
+        tempa.href = head + " width='" + document.getElementById("width").value + "' height='" + document.getElementById("height").value + "'>" + tempsvg.innerHTML + "</svg>";
     }
     else{
-        tempa.href = "data:text/plain;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg'>" + tempsvg.innerHTML + "</svg>";
+        tempa.href = head + ">" + tempsvg.innerHTML + "</svg>";
     }
     document.body.appendChild(tempa);
     tempa.click();
