@@ -13,27 +13,26 @@
         </div>
         <div id="main">
             <div id="toolbox">
-                <label>Width</label><br />
-                <input type="number" id="width" value="1920" oninput="update()" /><br />
-                <label>Height</label><br />
-                <input type="number" id="height" value="1080" oninput="update()" /><br />
-                <label>Horizontal Gradient Style</label><br />
-                <input type="text" id="xcolors" value="random" onclick="pwopen('x')" readonly /><br />
-                <label>Vertical Gradient Style</label><br />
-                <input type="text" id="ycolors" value="match" onclick="pwopen('y')" readonly /><br />
-                <label>Cell Size</label><br />
-                <input type="text" id="cellsize" value="75" oninput="csupdate()" /><br />
-                <label>Variance</label><br />
-                <input type="range" id="variance" min="0" max="2" step="0.04" value="0.75" oninput="varange()" /><br />
-                <input type="number" id="variance-text" value="0.75" oninput="vatext()" /><br />
-                <label onclick="randomize()">Seed<span style="color:blue;cursor:pointer" onclick="seedupdate()">(Click me to randomize)</span></label><br />
-                <input type="text" id="seed" value="" oninput="update()" placeholder="Random seed while empty" /><br />
-                <button onclick="svg(true)">Download SVG</button><br />
-                <button onclick="svg(false)">Download SVG(no resolution tag)</button><br />
-                <button onclick="dl()">Download PNG (full resolution)</button><br />
-                <span id="negatip" hidden="true">Caution: Negative value of Cell Size may produce some low-resolution file.</span>
+                <label class="toolla">Width</label><br />
+                <input class="toolin" type="number" id="width" value="1920" oninput="update()" /><br />
+                <label class="toolla">Height</label><br />
+                <input class="toolin" type="number" id="height" value="1080" oninput="update()" /><br />
+                <label class="toolla">Horizontal Gradient Style</label><br />
+                <input class="toolin" type="text" id="xcolors" value="random" onclick="pwopen('x')" readonly /><br />
+                <label class="toolla">Vertical Gradient Style</label><br />
+                <input class="toolin" type="text" id="ycolors" value="match" onclick="pwopen('y')" readonly /><br />
+                <label class="toolla">Cell Size</label><br />
+                <input class="toolin" type="text" id="cellsize" value="75" oninput="csupdate()" /><br />
+                <label class="toolla">Variance</label><br />
+                <input class="toolla" type="range" id="variance" min="0" max="2" step="0.04" value="0.75" oninput="varange()" /><br />
+                <input class="toolin" type="number" id="variance-text" value="0.75" oninput="vatext()" /><br />
+                <label class="toolla" onclick="randomize()">Seed<span style="color:blue;cursor:pointer" onclick="seedupdate()">(Click me to randomize)</span></label><br />
+                <input class="toolin" type="text" id="seed" value="" oninput="update()" placeholder="Random seed while empty" /><br />
+                <button class="tool" onclick="svg(true)">Download SVG</button><br />
+                <button class="tool" onclick="svg(false)">Download SVG(no resolution tag)</button><br />
+                <button class="tool" onclick="dl()">Download PNG (full resolution)</button><br />
+                <span class="tool" id="negatip" hidden="true">Caution: Negative value of Cell Size may produce some low-resolution file.</span>
             </div>
-            <button id="sh" onclick="document.getElementById('toolbox').hidden = !document.getElementById('toolbox').hidden">Toggle Parameters</button>
             <div id="imgbox"><div id="result"></div></div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/trianglify/dist/trianglify.bundle.js"></script>
