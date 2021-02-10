@@ -115,3 +115,10 @@ function csupdate(){
 function pwopen(xory){
     pw.hidden = false;
 }
+function fixnegacs(){
+    document.getElementById("cellsize").value=-document.getElementById("cellsize").value;
+    csupdate();
+}
+function drag(toolbox){
+
+}
