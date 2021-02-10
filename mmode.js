@@ -83,8 +83,8 @@ function csupdate(){
     if(temp.search(/[^-][^0-9]/) == -1){
         if(Math.abs(temp) <= 20){
             newsize = prompt("WARNING: Cell size with small absolute value (-20~20) will probably cause a crash, and the generated photo will have almost no triangle visible. Do you really want this?\r\nPlease enter the value you want below.");
-            while(newsize == 0){
-                newsize = prompt("Cell size can't be set to 0.\r\nEnter a new value below.");
+            while(newsize == 0 || newsize == null){
+                newsize = prompt("Cell size can't be set to 0 or empty.\r\nEnter a new value below.");
             }
         }
         var nega = document.getElementById("negatip");
