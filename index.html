@@ -2,13 +2,45 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/prismjs/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
         <title>trianglify-free</title>
+        <style type="text/css">a{transition:0.5s;color:blue;text-decoration:none;}a::after{color:blue;}a:hover{color:indigo;}</style>
     </head>
     <body style="background-color: #D3D6D8;">
-      <div style="text-align: center;">
-        <p><a href="random.default.html">Randomly generate a 1920*1080 res photo <strong>(not svg)</strong></a></p>
-        <p><a href="random.res.html">Controlable-res photo here <strong>(not svg)</strong></a></p>
-        <p><a href="mmode.html">Manual mode</a></p>
+      <div style="text-align: center;padding-left: 25%;padding-right: 25%;">
+        <h2>UIs</h2>
+        <p><a href="default.html">Randomly generator (generate a 1920*1080 res .png file)</a></p>
+        <p><a href="res.html">Resolution controllable .png file generator</a></p>
+        <p><a href="svg.html">.svg file generator (controllable)</a></p>
+        <p><a href="mmode.html">Manual mode generator</a></p>
+        <hr />
+        <h2>APIs</h2>
+        <p style="color: blue;" onclick="document.getElementById('png').hidden = !document.getElementById('png').hidden"><label>API to get a .png file</label></p>
+        <pre><code class="language-JavaScript" id="png" hidden="true">//Fake codes
+GET https://ljm12914.github.io/trianglify.io-free/api/png.html
+//Parameters:
+var width = 1920; //Width of the file (empty to fit)
+var height = 1080; //Height of the file (empty to fit)
+var cell-size = 75.0; //The size of triangles
+var variance = 0.75; //How distorted are the triangles
+var seed = new Date().getTime(); //Random seed, can be a number or string</code></pre>
+        <p style="color: blue;" onclick="document.getElementById('svg').hidden = !document.getElementById('svg').hidden"><label>API to get a .svg file</label></p>
+        <pre><code class="language-JavaScript" id="svg" hidden="true">//Fake codes
+GET https://ljm12914.github.io/trianglify.io-free/api/svg.html
+//Parameters:
+var width = 1920; //Width of the file (empty to fit)
+var height = 1080; //Height of the file (empty to fit)
+var cell-size = 75.0; //The size of triangles
+var variance = 0.75; //How distorted are the triangles
+var seed = new Date().getTime(); //Random seed, can be a number or string</code></pre>
+        <hr />
+        <p><small>Trianglify.io-Free Copyright (c) 2021 LJM12914. Copyright of ALL the files generated from this website belong to the user who generated it.</small></p>
+        <p><small><a href="https://github.com/ljm12914">My Github</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/ljm12914/trianglify.io-free">This Repository</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/qrohlf/trianglify">Trianglify's Source Repo</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://trianglify.io">Trianglify.io</a></small></p>
       </div>
     </body>
 </html>

@@ -78,12 +78,24 @@ function seedupdate(){
     update();
 }
 function csupdate(){
-    if(document.getElementById("cellsize").value.search(/[^-][^0-9]/) == -1){
-        if(Math.abs(document.getElementById("cellsize").value) <= 20){
-            var newsize = prompt("WARNING: Cell size with small absolute value (-20~20) will probably cause a crash, and the generated photo will have almost no triangle visible. Do you really want this?\r\nPlease enter the value you want below.");
-            document.getElementById("cellsize").value = newsize;
+    var temp = document.getElementById("cellsize").value;
+    var newsize = temp;
+    if(temp.search(/[^-][^0-9]/) == -1){
+        if(Math.abs(temp) <= 20){
+            newsize = prompt("WARNING: Cell size with small absolute value (-20~20) will probably cause a crash, and the generated photo will have almost no triangle visible. Do you really want this?\r\nPlease enter the value you want below.");
+            while(newsize == 0){
+                newsize = prompt("Cell size can't be set to 0.\r\nEnter a new value below.");
+            }
         }
-        cellsize = document.getElementById("cellsize").value;
+        var nega = document.getElementById("negatip");
+        if(newsize < 0){
+            nega.hidden = false;
+        }
+        else{
+            nega.hidden = true;
+        }
+        cellsize = newsize;
+        document.getElementById("cellsize").value = newsize;
         update();
     }
     else{
