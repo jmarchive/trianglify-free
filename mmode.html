@@ -2,31 +2,40 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
         <title>trianglify-free</title>
+        <link rel="stylesheet" href="mmode.css" />
     </head>
     <body>
-        <label>Width</label>
-        <input type="number" id="width" value="1920" oninput="update()" />
-        <label>Height</label>
-        <input type="number" id="height" value="1080" oninput="update()" />
-        <label>Horizontal Gradient Style</label>
-        <input type="text" id="xcolors" value="random" onclick="choosecolor()" readonly />
-        <label>Vertical Gradient Style</label>
-        <input type="text" id="ycolors" value="match" onclick="choosecolor()" readonly />
-        <br />
-        <label>Cell Size</label>
-        <input type="text" id="cellsize" value="75" oninput="csupdate()" />
-        <label>Variance</label>
-        <input type="range" id="variance" min="0" max="2" step="0.04" value="0.75" oninput="varange()" />
-        <input type="number" id="variance-text" value="0.75" oninput="vatext()" />
-        <label onclick="randomize()">Seed<span style="color: blue;" onclick="seedupdate()">(Click me to randomize)</span></label>
-        <input type="text" id="seed" value="" oninput="update()" placeholder="Random seed while empty" />
-        <br />
-        <button onclick="svg(true)">Download SVG</button>
-        <button onclick="svg(false)">Download SVG(no resolution tag)</button>
-        <button onclick="dl()">Download PNG (full resolution)</button>
-        <span id="negatip" hidden="true">Caution: Negative value of Cell Size may produce some low-resolution file.</span>
-        <div id="result"></div>
+        <div hidden="true" id="pw">
+            <p>fasvfgvg</p>
+            <button onclick="document.getElementById('pw').hidden=true">close</button>
+        </div>
+        <div id="main">
+            <div id="toolbox">
+                <label>Width</label><br />
+                <input type="number" id="width" value="1920" oninput="update()" /><br />
+                <label>Height</label><br />
+                <input type="number" id="height" value="1080" oninput="update()" /><br />
+                <label>Horizontal Gradient Style</label><br />
+                <input type="text" id="xcolors" value="random" onclick="pwopen('x')" readonly /><br />
+                <label>Vertical Gradient Style</label><br />
+                <input type="text" id="ycolors" value="match" onclick="pwopen('y')" readonly /><br />
+                <label>Cell Size</label><br />
+                <input type="text" id="cellsize" value="75" oninput="csupdate()" /><br />
+                <label>Variance</label><br />
+                <input type="range" id="variance" min="0" max="2" step="0.04" value="0.75" oninput="varange()" /><br />
+                <input type="number" id="variance-text" value="0.75" oninput="vatext()" /><br />
+                <label onclick="randomize()">Seed<span style="color:blue;cursor:pointer" onclick="seedupdate()">(Click me to randomize)</span></label><br />
+                <input type="text" id="seed" value="" oninput="update()" placeholder="Random seed while empty" /><br />
+                <button onclick="svg(true)">Download SVG</button><br />
+                <button onclick="svg(false)">Download SVG(no resolution tag)</button><br />
+                <button onclick="dl()">Download PNG (full resolution)</button><br />
+                <span id="negatip" hidden="true">Caution: Negative value of Cell Size may produce some low-resolution file.</span>
+            </div>
+            <button id="sh" onclick="document.getElementById('toolbox').hidden = !document.getElementById('toolbox').hidden">Toggle Parameters</button>
+            <div id="imgbox"><div id="result"></div></div>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/trianglify/dist/trianglify.bundle.js"></script>
         <script src="mmode.js"></script>
     </body>

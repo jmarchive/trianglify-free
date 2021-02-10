@@ -1,4 +1,10 @@
+//globals
+
 var resbox = document.getElementById("result");
+var pw = document.getElementById("pw");
+
+//setup
+
 document.getElementById("seed").value = new Date().getTime();
 var variance = 0.75;
 var cellsize = 75;
@@ -15,6 +21,9 @@ var pattern = trianglify({
     points: null
 });
 resbox.appendChild(pattern.toCanvas());
+
+//functions
+
 function update(){
     pattern = trianglify({
         width: document.getElementById("width").value,
@@ -102,4 +111,7 @@ function csupdate(){
     else{
         document.getElementById("cellsize").value = cellsize;
     }
+}
+function pwopen(xory){
+    pw.hidden = false;
 }
