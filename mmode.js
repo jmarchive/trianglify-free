@@ -103,7 +103,7 @@ function pwopen(xory){
 }
 function drag(){
     var drag = document.getElementById("drag");
-    var toolbox = document.getElementById("toolbox");
+    var toolbox = document.getElementById("mainwindow");
     var mox, moy, dragable = false;
     var bleft = parseInt(window.getComputedStyle(toolbox)["left"]);
     var btop = parseInt(window.getComputedStyle(toolbox)["top"]);
