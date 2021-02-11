@@ -11,21 +11,35 @@
             <button onclick="document.getElementById('pw').hidden=true">close</button>
         </div>
         <div id="toolbox" style="top: 5px;left: 5px;">
-            <label class="tool drag" id="drag">Hold Me To Drag Toolbox</label><span></span><br />
-            <label class="tool">Width</label><br />
-            <input class="tool in" type="number" id="width" value="1920" oninput="update()" /><br />
-            <label class="tool">Height</label><br />
-            <input class="tool in" type="number" id="height" value="1080" oninput="update()" /><br />
-            <label class="tool">Horizontal Gradient Style</label><br />
-            <input class="tool in" type="text" id="xcolors" value="random" onclick="pwopen('x')" readonly /><br />
-            <label class="tool">Vertical Gradient Style</label><br />
-            <input class="tool in" type="text" id="ycolors" value="match" onclick="pwopen('y')" readonly /><br />
-            <label class="tool">Cell Size</label><br />
-            <input class="tool in" type="number" id="cellsize" value="75" oninput="csupdate()" /><br />
-            <label class="tool">Variance</label><br />
-            <input class="tool in" type="number" id="variance" value="0.75" oninput="vaupdate()" /><br />
-            <label class="tool" onclick="randomize()">Seed<span class="tool link" onclick="seedupdate()">(Click me to randomize)</span></label><br />
-            <input class="tool in" type="text" id="seed" value="" oninput="update()" placeholder="Random seed while empty" /><br /><br />
+            <label class="tool drag" id="drag">Hold Me To Drag</label><span></span><br />
+            <span class="tool">
+                <label>Width</label><br />
+                <input class="in" type="number" id="width" value="1920" oninput="update()" />
+            </span><br />
+            <span class="tool">
+                <label>Height</label><br />
+                <input class="in" type="number" id="height" value="1080" oninput="update()" />
+            </span><br />
+            <span class="tool">
+                <label>Horizontal Gradient Style</label><br />
+                <input class="in" type="text" id="xcolors" value="random" onclick="pwopen('x')" readonly />
+            </span><br />
+            <span class="tool">
+                <label>Vertical Gradient Style</label><br />
+                <input class="in" type="text" id="ycolors" value="match" onclick="pwopen('y')" readonly />
+            </span><br />
+            <span class="tool">
+                <label>Cell Size</label><br />
+                <input class="in" type="number" id="cellsize" value="75" oninput="csupdate()" />
+            </span><br />
+            <span class="tool">
+                <label>Variance</label><br />
+                <input class="in" type="number" id="variance" value="0.75" oninput="vaupdate()" />
+            </span><br />
+            <span class="tool">
+            <label onclick="randomize()">Seed<span class="tool link" onclick="seedupdate()">(Click me to randomize)</span></label><br />
+            <input class="in" type="text" id="seed" value="" oninput="update()" placeholder="Random seed while empty" />
+            </span><br /><br />
             <button class="tool" onclick="svg(true)">Download SVG</button><br />
             <button class="tool" onclick="svg(false)">Download SVG(no resolution tag)</button><br />
             <button class="tool" onclick="png()">Download PNG (full resolution)</button><br />
