@@ -1,9 +1,19 @@
 # trianglify.io-free
-**Copyright** : [trianglify](https://github.com/qrohlf/trianglify) is created by qrohlf.
+版权声明：[trianglify](https://github.com/qrohlf/trianglify)开源库由qrohlf编写。本人为增加前端编程经验编写了该网站。
+
+**Copyright** : [trianglify](https://github.com/qrohlf/trianglify) is created by qrohlf. I wrote this website in order to improve my front-end programming skills.
 
 trianglify本来是一个开源项目，不过它的作者qrohlf使用它建造的trianglify.io居然要收费？！
 
-不。建造一个类似的、无需付费的、用户友好的网站并不难，并且更好的消息是：它使用Github Pages托管。[点击这里](https://ljm12914.github.io/trianglify.io-free/)
+Trianglify was an open-sourced repository. However, trianglify.io, which was created by its author qrohlf, asks every user to pay money to download files?!
+
+那我就自己建一个拿来用呗。它使用Github Pages托管。[点击这里](https://ljm12914.github.io/trianglify.io-free/)
+
+Ahh... Just build another website by myself, so that I can use it freely. It is deployed on Github Pages, which made it serverless.[Click here](https://ljm12914.github.io/trianglify.io-free/)
+
+计划添加更多的自定义功能（如允许负值、种子选择、尺寸调节），**开放图片和SVG引用API**。
+
+I also plan to add more custom functions such as negative values, customized seeds, adjustable size and **made an API for any website to quote the patterns**.
 
 ---
 
