@@ -11,7 +11,7 @@
             <button onclick="document.getElementById('pw').hidden=true">close</button>
         </div>
         <div id="toolbox" style="top: 5px;left: 5px;">
-            <label class="tool drag" id="drag">Hold To Drag</label><span></span><br />
+            <label class="tool drag" id="drag">Hold Me To Drag Toolbox</label><span></span><br />
             <label class="tool">Width</label><br />
             <input class="tool in" type="number" id="width" value="1920" oninput="update()" /><br />
             <label class="tool">Height</label><br />
@@ -30,7 +30,7 @@
             <button class="tool" onclick="svg(true)">Download SVG</button><br />
             <button class="tool" onclick="svg(false)">Download SVG(no resolution tag)</button><br />
             <button class="tool" onclick="png()">Download PNG (full resolution)</button><br />
-            <label class="tool cau" id="negatip" hidden="true">Cell Size below 0 may produce some unwanted file, <span class="tool link" onclick="fixnegacs()">click here</span> to fix.</label>
+            <label class="tool cau" id="negatip" hidden="true">Cell Size's below 0, <span class="tool link" onclick="fixnegacs()">click here</span> to fix.</label>
         </div>
         <div id="result"></div>
         <script src="https://cdn.jsdelivr.net/npm/trianglify/dist/trianglify.bundle.js"></script>

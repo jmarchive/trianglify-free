@@ -21,6 +21,7 @@ var pattern = trianglify({
     points: null
 });
 resbox.appendChild(pattern.toCanvas());
+drag();
 
 //functions
 //main function: update pattern
@@ -123,5 +124,25 @@ function pwopen(xory){
     pw.hidden = false;
 }
 function drag(){
-    
+    var drag = document.getElementById("drag");
+    var toolbox = document.getElementById("toolbox");
+    var mox, moy, dragable = false;
+    var bleft = parseInt(window.getComputedStyle(toolbox)["left"]);
+    var btop = parseInt(window.getComputedStyle(toolbox)["top"]);
+    drag.addEventListener("mousedown",function(event){
+        dragable = true;
+        mox = event.clientX;
+        moy = event.clientY;
+    },false);
+    document.addEventListener("mousemove",function(event){
+        if(dragable){
+            toolbox.style.left = bleft + event.clientX - mox + "px";
+            toolbox.style.top = btop + event.clientY - moy + "px";
+        }
+    });
+    document.addEventListener("mouseup",function(event){
+        dragable = false;
+        bleft = parseInt(window.getComputedStyle(toolbox)["left"]);
+        btop = parseInt(window.getComputedStyle(toolbox)["top"]);
+    },false);
 }
