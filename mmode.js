@@ -23,7 +23,7 @@ var pattern = trianglify({
 resbox.appendChild(pattern.toCanvas());
 
 //functions
-
+//main function: update pattern
 function update(){
     pattern = trianglify({
         width: document.getElementById("width").value,
@@ -40,7 +40,8 @@ function update(){
     resbox.appendChild(pattern.toCanvas());
     resbox.removeChild(resbox.childNodes[0]);
 }
-function dl(){
+//download files
+function png(){
     var temp = document.createElement("a");
     temp.download = 'trianglify-free';
     temp.href = resbox.childNodes[0].toDataURL("image/png");
@@ -65,6 +66,7 @@ function svg(res){
     tempa.click();
     tempa.remove();
 }
+//two variance controllers update
 function varange(){
     variance = document.getElementById("variance").value;
     document.getElementById("variance-text").value = document.getElementById("variance").value;
@@ -83,6 +85,7 @@ function vatext(){
     variance = document.getElementById("variance-text").value;
     update();
 }
+//special updates
 function seedupdate(){
     document.getElementById("seed").value = new Date().getTime();
     update();
@@ -112,13 +115,13 @@ function csupdate(){
         document.getElementById("cellsize").value = cellsize;
     }
 }
-function pwopen(xory){
-    pw.hidden = false;
-}
 function fixnegacs(){
     document.getElementById("cellsize").value=-document.getElementById("cellsize").value;
     csupdate();
 }
-function drag(toolbox){
-
+function pwopen(xory){
+    pw.hidden = false;
+}
+function drag(){
+    
 }
