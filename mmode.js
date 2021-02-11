@@ -6,13 +6,12 @@ var pw = document.getElementById("pw");
 //setup
 
 document.getElementById("seed").value = new Date().getTime();
-var variance = 0.75;
 var cellsize = 75;
 var pattern = trianglify({
     width: document.getElementById("width").value,
     height: document.getElementById("height").value,
     cellSize: cellsize,
-    variance: variance,
+    variance: document.getElementById("variance").value,
     seed: document.getElementById("seed").value,
     xColors: 'random',
     yColors: 'match',
@@ -30,7 +29,7 @@ function update(){
         width: document.getElementById("width").value,
         height: document.getElementById("height").value,
         cellSize: cellsize,
-        variance: variance,
+        variance: document.getElementById("variance").value,
         seed: document.getElementById("seed").value,
         xColors: 'random',
         yColors: 'match',
@@ -67,26 +66,10 @@ function svg(res){
     tempa.click();
     tempa.remove();
 }
-//two variance controllers update
-function varange(){
-    variance = document.getElementById("variance").value;
-    document.getElementById("variance-text").value = document.getElementById("variance").value;
+//updates
+function vaupdate(){
     update();
 }
-function vatext(){
-    if(document.getElementById("variance-text").value > 2){
-        document.getElementById("variance").value = 2;
-    }
-    else if(document.getElementById("variance-text").value == 0){
-        document.getElementById("variance").value = 0;
-    }
-    else{
-        document.getElementById("variance").value = document.getElementById("variance-text").value;
-    }
-    variance = document.getElementById("variance-text").value;
-    update();
-}
-//special updates
 function seedupdate(){
     document.getElementById("seed").value = new Date().getTime();
     update();
@@ -94,27 +77,22 @@ function seedupdate(){
 function csupdate(){
     var temp = document.getElementById("cellsize").value;
     var newsize = temp;
-    if(temp.search(/[^-][^0-9]/) == -1){
-        if(Math.abs(temp) <= 20){
-            newsize = prompt("WARNING: Cell size with small absolute value (-20~20) will probably cause a crash, and the generated photo will have almost no triangle visible. Do you really want this?\r\nPlease enter the value you want below.");
-            while(newsize == 0 || newsize == null){
-                newsize = prompt("Cell size can't be set to 0 or empty.\r\nEnter a new value below.");
-            }
+    if(Math.abs(temp) <= 20){
+        newsize = prompt("WARNING: Cell size with small absolute value (-20~20) will probably cause a crash, and the generated photo will have almost no triangle visible. Do you really want this?\r\nPlease enter the value you want below.");
+        while(newsize == 0 || newsize == null){
+            newsize = prompt("Cell size can't be set to 0 or empty.\r\nEnter a new value below.");
         }
-        var nega = document.getElementById("negatip");
-        if(newsize < 0){
-            nega.hidden = false;
-        }
-        else{
-            nega.hidden = true;
-        }
-        cellsize = newsize;
-        document.getElementById("cellsize").value = newsize;
-        update();
+    }
+    var nega = document.getElementById("negatip");
+    if(newsize < 0){
+        nega.hidden = false;
     }
     else{
-        document.getElementById("cellsize").value = cellsize;
+        nega.hidden = true;
     }
+    cellsize = newsize;
+    document.getElementById("cellsize").value = newsize;
+    update();
 }
 function fixnegacs(){
     document.getElementById("cellsize").value=-document.getElementById("cellsize").value;

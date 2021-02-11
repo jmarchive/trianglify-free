@@ -21,10 +21,9 @@
             <label class="tool">Vertical Gradient Style</label><br />
             <input class="tool in" type="text" id="ycolors" value="match" onclick="pwopen('y')" readonly /><br />
             <label class="tool">Cell Size</label><br />
-            <input class="tool in" type="text" id="cellsize" value="75" oninput="csupdate()" /><br />
+            <input class="tool in" type="number" id="cellsize" value="75" oninput="csupdate()" /><br />
             <label class="tool">Variance</label><br />
-            <input type="range" id="variance" min="0" max="2" step="0.04" value="0.75" oninput="varange()" /><br />
-            <input class="tool in" type="number" id="variance-text" value="0.75" oninput="vatext()" /><br />
+            <input class="tool in" type="number" id="variance" value="0.75" oninput="vaupdate()" /><br />
             <label class="tool" onclick="randomize()">Seed<span class="tool link" onclick="seedupdate()">(Click me to randomize)</span></label><br />
             <input class="tool in" type="text" id="seed" value="" oninput="update()" placeholder="Random seed while empty" /><br /><br />
             <button class="tool" onclick="svg(true)">Download SVG</button><br />
