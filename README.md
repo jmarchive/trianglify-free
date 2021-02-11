@@ -7,11 +7,11 @@ trianglify本来是一个开源项目，不过它的作者qrohlf使用它建造�
 
 Trianglify was an open-sourced repository. However, trianglify.io, which was created by its author qrohlf, asks every user to pay money to download files?!
 
-那我就自己建一个拿来用呗。它使用Github Pages托管。[点击这里](https://ljm12914.github.io/trianglify.io-free/)
+那我就自己建一个呗。它使用Github Pages托管，不需要支出服务器费用，整挺好。[点击这里](https://ljm12914.github.io/trianglify.io-free/)
 
 Ahh... Just build another website by myself, so that I can use it freely. It is deployed on Github Pages, which made it serverless.[Click here](https://ljm12914.github.io/trianglify.io-free/)
 
-计划添加更多的自定义功能（如允许负值、种子选择、尺寸调节），**开放图片和SVG引用API**。
+并且我还计划添加trianglify.io没有的更多自定义功能（如允许负值、种子选择、尺寸调节），**开放图片和SVG引用API**。
 
 I also plan to add more custom functions such as negative values, customized seeds, adjustable size and **made an API for any website to quote the patterns**.
 
