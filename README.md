@@ -13,7 +13,7 @@ Ahh... Just build another website by myself, so that I can use it freely. It is 
 
 并且我还计划添加trianglify.io没有的更多自定义功能（如允许负值、种子选择、尺寸调节），**开放图片和SVG引用API**。
 
-I also plan to add more custom functions such as negative values, customized seeds, adjustable size and **made an API for any website to quote the patterns**.
+I also plan to add more custom functions such as negative values, customized seeds, adjustable size and **an API for any website to quote the patterns**.
 
 ---
 
