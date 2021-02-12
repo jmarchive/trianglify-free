@@ -42,8 +42,9 @@ function update(){
 }
 //download files
 function png(){
+    var date = new Date();
     var temp = document.createElement("a");
-    temp.download = 'trianglify-free';
+    temp.download = "trianglify-free-" + date.getFullYear() + "." + date.getMonth() + "." + date.getDay() + "_" + date.getHours() + date.getMinutes() + date.getSeconds() + ".png";
     temp.href = resbox.childNodes[0].toDataURL("image/png");
     document.body.appendChild(temp);
     temp.click();
@@ -54,12 +55,15 @@ function svg(res){
     tempsvg.hidden = true;
     pattern.toSVG(tempsvg);
     var tempa = document.createElement("a");
-    tempa.download = 'trianglify-free.svg';
     const head = "data:text/plain;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg'";
+    var date = new Date();
+    var timestamp = date.getFullYear() + "." + date.getMonth() + "." + date.getDay() + "_" + date.getHours() + date.getMinutes() + date.getSeconds();
     if(res){
+        tempa.download = "trianglify-free-res-" + timestamp + ".svg";
         tempa.href = head + " width='" + document.getElementById("width").value + "' height='" + document.getElementById("height").value + "'>" + tempsvg.innerHTML + "</svg>";
     }
     else{
+        tempa.download = "trianglify-free-nores-" + timestamp + ".svg";
         tempa.href = head + ">" + tempsvg.innerHTML + "</svg>";
     }
     document.body.appendChild(tempa);
@@ -98,19 +102,18 @@ function fixnegacs(){
     document.getElementById("cellsize").value=-document.getElementById("cellsize").value;
     csupdate();
 }
-function pwopen(xory){
-    pw.hidden = false;
-}
+//drag windows
 function drag(){
     var drag = document.getElementById("drag");
     var toolbox = document.getElementById("mainwindow");
     var mox, moy, dragable = false;
-    var bleft = parseInt(window.getComputedStyle(toolbox)["left"]);
-    var btop = parseInt(window.getComputedStyle(toolbox)["top"]);
+    var bleft = parseInt(getComputedStyle(toolbox)["left"]);
+    var btop = parseInt(getComputedStyle(toolbox)["top"]);
     drag.addEventListener("mousedown",function(event){
         dragable = true;
         mox = event.clientX;
         moy = event.clientY;
+        drag.style.cursor = "grabbing";
     },false);
     document.addEventListener("mousemove",function(event){
         if(dragable){
@@ -118,9 +121,47 @@ function drag(){
             toolbox.style.top = btop + event.clientY - moy + "px";
         }
     });
-    document.addEventListener("mouseup",function(event){
+    document.addEventListener("mouseup",function(){
         dragable = false;
-        bleft = parseInt(window.getComputedStyle(toolbox)["left"]);
-        btop = parseInt(window.getComputedStyle(toolbox)["top"]);
+        drag.style.cursor = "grab";
+        bleft = parseInt(getComputedStyle(toolbox)["left"]);
+        btop = parseInt(getComputedStyle(toolbox)["top"]);
+    },false);
+}
+//mouse changes value
+function mouse(targetid){
+    var step;
+    if(target == "variance"){
+        step = 10;
+    }
+    else{
+        step = 4;
+    }
+    var target = document.getElementById(targetid);
+    var targeted = false;
+    var moy, temp = parseInt(target.value);
+    target.addEventListener("mousedown",function(event){
+        targeted = true;
+        moy = event.clientY;
+    },false);
+    document.addEventListener("mousemove",function(event){
+        if(targeted){
+            if(moy - event.clientY == 10){
+                temp++;
+                target.value = temp;
+                moy = event.clientY;
+            }
+            else if(event.clientY - moy == 10){
+                temp--;
+                target.value = temp;
+                moy = event.clientY;
+            }
+        }
+    });
+    document.addEventListener("mouseup",function(event){
+        if(targeted){
+            targeted = false;
+            target.oninput();
+        }
     },false);
 }

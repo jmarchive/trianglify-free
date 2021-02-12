@@ -6,16 +6,16 @@
         <link rel="stylesheet" href="mmode.css" /><!--记得改min！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！-->
     </head>
     <body>
-        <div id="mainwindow" style="top: 5px;left: 5px;">
-            <div id="dragdiv"><label class="tool drag" id="drag">>hold to move the window<</label></div><br />
+        <div id="mainwindow" style="top: 50px;left: 50px;">
+            <div id="dragdiv"><label class="tool drag" id="drag" style="cursor: grab;">>hold to drag<</label></div><br />
             <div id="toolbox" style="padding: 5px;">
                 <span class="tool">
                     <label>Width</label><br />
-                    <input class="in" type="number" id="width" value="1920" oninput="update()" />
+                    <input class="in mouse" type="number" id="width" value="1920" oninput="update()" onmousemove="mouse('width')" />
                 </span><br />
                 <span class="tool">
                     <label>Height</label><br />
-                    <input class="in" type="number" id="height" value="1080" oninput="update()" />
+                    <input class="in mouse" type="number" id="height" value="1080" oninput="update()" onmousemove="mouse('height')" />
                 </span><br />
                 <span class="tool">
                     <label>Horizontal Gradient Style</label><br />
@@ -27,11 +27,11 @@
                 </span><br />
                 <span class="tool">
                     <label>Cell Size</label><br />
-                    <input class="in" type="number" id="cellsize" value="75" oninput="csupdate()" />
+                    <input class="in mouse" type="number" id="cellsize" value="75" oninput="csupdate()" onmousemove="mouse('cellsize')" />
                 </span><br />
                 <span class="tool">
                     <label>Variance</label><br />
-                    <input class="in" type="number" id="variance" value="0.75" step="0.01" oninput="vaupdate()" />
+                    <input class="in mouse" type="number" id="variance" value="0.75" step="0.01" oninput="vaupdate()" onmousemove="mouse('variance')" />
                 </span><br />
                 <span class="tool">
                     <label onclick="randomize()">Seed <span class="tool link" onclick="seedupdate()">(Click to randomize)</span></label><br />

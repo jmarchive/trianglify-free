@@ -58,7 +58,6 @@ button:hover{
     box-shadow: 2px 2px 2px #00000050;
 }
 .drag{
-    cursor: move;
     color: #00000090;
 }
 .drag:hover{
@@ -73,4 +72,7 @@ button:hover{
     outline: none;
     user-select: none;
     font-size: large;
+}
+.mouse{
+    cursor: ns-resize;
 }
