@@ -1,6 +1,6 @@
 const pattern = trianglify({
-    width: window.innerWidth,
-    height: window.innerHeight
+    width: 1920,
+    height: 1080
 });
 document.body.appendChild(pattern.toCanvas());
 var b = document.getElementsByTagName("canvas");
