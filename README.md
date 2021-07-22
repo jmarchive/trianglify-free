@@ -1,4 +1,9 @@
 # trianglify.io-free
+
+**Further Development Has Been Stopped.**
+
+**后续开发已终止。**
+
 **版权声明**：[trianglify](https://github.com/qrohlf/trianglify)开源库由qrohlf编写。本人为增加前端编程经验编写了该网站。
 
 **Copyright** : [trianglify](https://github.com/qrohlf/trianglify) is created by qrohlf. I wrote this website in order to improve my front-end programming skills.
