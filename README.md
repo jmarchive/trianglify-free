@@ -1,7 +1,5 @@
 # trianglify.io-free
 
-## 注意：本仓库为林峻茗转专业的支持材料。
-
 **Further Development Has Been Stopped.**
 
 **后续开发已终止。**
